@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.8.2)
+  - SkeletonView (1.6)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - SkeletonView
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SkeletonView
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SkeletonView: 6c2bf622c352c7e36b4f3c8d73afc46d6c9360d6
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 00f1762881d44258a7833c47596c2182d3ff8549
+
+COCOAPODS: 1.7.2

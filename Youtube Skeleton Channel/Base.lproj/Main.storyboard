@@ -1,24 +1,433 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxa-ZZ-kAy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home Collection View Controller-->
+        <scene sceneID="2nC-yS-SjN">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <collectionViewController id="Egp-DS-ByX" customClass="HomeCollectionViewController" customModule="Youtube_Skeleton_Channel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Kgt-I2-6Yw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="systemBackgroundColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i5T-ag-wcr">
+                            <size key="itemSize" width="414" height="308"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="8iy-8p-cYf" customClass="DetailedCell" customModule="Youtube_Skeleton_Channel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="308"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="308"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bnk-p4-gSi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="414" id="H01-ab-Vvd"/>
+                                                <constraint firstAttribute="height" constant="222" id="sqx-Mn-PWp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e3s-rf-hdy">
+                                            <rect key="frame" x="20" y="230" width="70" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="1HP-Fu-sLz"/>
+                                                <constraint firstAttribute="width" constant="70" id="QuM-Qd-YC4"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdi-Vd-sWm">
+                                            <rect key="frame" x="102" y="231" width="292" height="63"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="63" id="8AE-Xl-tKT"/>
+                                                <constraint firstAttribute="width" constant="292" id="gdj-eZ-BPm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Wdi-Vd-sWm" firstAttribute="top" secondItem="Bnk-p4-gSi" secondAttribute="bottom" constant="9" id="IYk-35-xRI"/>
+                                    <constraint firstItem="Bnk-p4-gSi" firstAttribute="top" secondItem="8iy-8p-cYf" secondAttribute="top" id="RKT-Pd-hsK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bnk-p4-gSi" secondAttribute="trailing" id="i0a-Mh-8ZR"/>
+                                    <constraint firstItem="e3s-rf-hdy" firstAttribute="leading" secondItem="8iy-8p-cYf" secondAttribute="leading" constant="20" id="ib3-3q-Ue0"/>
+                                    <constraint firstItem="Bnk-p4-gSi" firstAttribute="leading" secondItem="8iy-8p-cYf" secondAttribute="leading" id="mPW-km-m8H"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wdi-Vd-sWm" secondAttribute="trailing" constant="20" id="wwn-GT-OlY"/>
+                                    <constraint firstItem="Wdi-Vd-sWm" firstAttribute="leading" secondItem="e3s-rf-hdy" secondAttribute="trailing" constant="12" id="ygV-KG-8r0"/>
+                                    <constraint firstItem="e3s-rf-hdy" firstAttribute="top" secondItem="Bnk-p4-gSi" secondAttribute="bottom" constant="8" id="zEH-wb-uqv"/>
+                                    <constraint firstAttribute="bottom" secondItem="e3s-rf-hdy" secondAttribute="bottom" constant="14" id="zqu-cY-ilA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="kQG-kL-FfO" kind="show" identifier="goToDetails" id="SvH-pj-nvV"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="Egp-DS-ByX" id="kiS-AQ-K0M"/>
+                            <outlet property="delegate" destination="Egp-DS-ByX" id="Bzi-v0-1ii"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="CuO-HD-Lsl"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgv-hO-eng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2175.36231884058" y="-579.24107142857144"/>
+        </scene>
+        <!--Video CellV Iew Controller-->
+        <scene sceneID="rlK-UR-puD">
+            <objects>
+                <viewController id="kQG-kL-FfO" customClass="VideoCellVIewController" customModule="Youtube_Skeleton_Channel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HM8-Kt-Lu9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-Ug-caI">
+                                <rect key="frame" x="114" y="317" width="300" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="i3M-BW-Wdu"/>
+                                    <constraint firstAttribute="height" constant="62" id="x6u-Mj-NeM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UP5-g9-PyX">
+                                <rect key="frame" x="0.0" y="431" width="414" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="465" id="W1Y-qk-3Mg"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VfX-yH-4JU">
+                                    <size key="itemSize" width="412" height="123"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCellId" id="Y0v-c7-HsT" customClass="RecommendedVideo" customModule="Youtube_Skeleton_Channel" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="0.0" width="412" height="123"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="412" height="123"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="kQG-kL-FfO" id="Vrd-dM-le0"/>
+                                    <outlet property="delegate" destination="kQG-kL-FfO" id="0dy-LH-ojo"/>
+                                </connections>
+                            </collectionView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-fa-nXf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="221"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="KGV-hu-pe7"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yH-u2-pfZ">
+                                <rect key="frame" x="274" y="387" width="130" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="MHx-Ry-GhH"/>
+                                    <constraint firstAttribute="width" constant="130" id="d4K-bm-VNs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRK-rD-wFn">
+                                <rect key="frame" x="114" y="387" width="130" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="Eek-zU-pX1"/>
+                                    <constraint firstAttribute="width" constant="130" id="Lf7-4u-RvR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CWq-Pc-BNT">
+                                <rect key="frame" x="0.0" y="317" width="106" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="Tft-WG-Tk8"/>
+                                    <constraint firstAttribute="height" constant="106" id="ffq-xg-wPH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Vg-fa-nXf" firstAttribute="trailing" secondItem="V2w-3G-Ve4" secondAttribute="trailing" id="3bQ-dU-KYp"/>
+                            <constraint firstItem="5yH-u2-pfZ" firstAttribute="top" secondItem="wtH-Ug-caI" secondAttribute="bottom" constant="8" id="4cr-ex-wqE"/>
+                            <constraint firstItem="UP5-g9-PyX" firstAttribute="top" secondItem="CWq-Pc-BNT" secondAttribute="bottom" constant="8" id="96k-bj-SWr"/>
+                            <constraint firstItem="CWq-Pc-BNT" firstAttribute="leading" secondItem="V2w-3G-Ve4" secondAttribute="leading" id="A3l-eI-Ggx"/>
+                            <constraint firstItem="wtH-Ug-caI" firstAttribute="trailing" secondItem="V2w-3G-Ve4" secondAttribute="trailing" id="AYp-Bf-Rrp"/>
+                            <constraint firstItem="UP5-g9-PyX" firstAttribute="leading" secondItem="V2w-3G-Ve4" secondAttribute="leading" id="CG7-LW-JOj"/>
+                            <constraint firstItem="wtH-Ug-caI" firstAttribute="leading" secondItem="CWq-Pc-BNT" secondAttribute="trailing" constant="8" id="IFB-XL-10f"/>
+                            <constraint firstItem="V2w-3G-Ve4" firstAttribute="trailing" secondItem="5yH-u2-pfZ" secondAttribute="trailing" constant="10" id="Klb-Pf-h9N"/>
+                            <constraint firstItem="2Vg-fa-nXf" firstAttribute="top" secondItem="V2w-3G-Ve4" secondAttribute="top" id="MNM-qq-ygV"/>
+                            <constraint firstItem="CWq-Pc-BNT" firstAttribute="top" secondItem="2Vg-fa-nXf" secondAttribute="bottom" constant="8" id="T6A-kG-eIc"/>
+                            <constraint firstItem="UP5-g9-PyX" firstAttribute="trailing" secondItem="V2w-3G-Ve4" secondAttribute="trailing" id="mUb-xi-BQT"/>
+                            <constraint firstItem="dRK-rD-wFn" firstAttribute="leading" secondItem="CWq-Pc-BNT" secondAttribute="trailing" constant="8" id="o4p-nt-qWv"/>
+                            <constraint firstItem="UP5-g9-PyX" firstAttribute="top" secondItem="5yH-u2-pfZ" secondAttribute="bottom" constant="21" id="pRQ-f1-Thu"/>
+                            <constraint firstAttribute="bottom" secondItem="UP5-g9-PyX" secondAttribute="bottom" id="sAn-e2-CBq"/>
+                            <constraint firstItem="dRK-rD-wFn" firstAttribute="top" secondItem="wtH-Ug-caI" secondAttribute="bottom" constant="8" id="sFb-yN-uqW"/>
+                            <constraint firstItem="UP5-g9-PyX" firstAttribute="top" secondItem="dRK-rD-wFn" secondAttribute="bottom" constant="21" id="sIr-Y3-FSV"/>
+                            <constraint firstItem="2Vg-fa-nXf" firstAttribute="leading" secondItem="V2w-3G-Ve4" secondAttribute="leading" id="t8x-6x-d4w"/>
+                            <constraint firstItem="wtH-Ug-caI" firstAttribute="top" secondItem="2Vg-fa-nXf" secondAttribute="bottom" constant="8" id="zry-3c-GHv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V2w-3G-Ve4"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="UP5-g9-PyX" id="A99-Qr-Gtg"/>
+                        <outlet property="date" destination="dRK-rD-wFn" id="fPD-ct-oh8"/>
+                        <outlet property="imageView" destination="CWq-Pc-BNT" id="Llu-oB-TuJ"/>
+                        <outlet property="videoTitle" destination="wtH-Ug-caI" id="Y50-J2-9pr"/>
+                        <outlet property="viewCount" destination="5yH-u2-pfZ" id="SKw-Ar-KHW"/>
+                        <outlet property="webView" destination="2Vg-fa-nXf" id="CGE-Dg-8w7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7H-XF-SxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2988.4057971014495" y="-579.24107142857144"/>
+        </scene>
+        <!--Channel List Controller Table View Controller-->
+        <scene sceneID="UpW-Ff-9au">
+            <objects>
+                <tableViewController id="55c-oK-OIr" customClass="ChannelListControllerTableViewController" customModule="Youtube_Skeleton_Channel" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnC-z1-3vS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCellId" id="5TG-OW-rjt" customClass="channelUITableViewCell" customModule="Youtube_Skeleton_Channel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5TG-OW-rjt" id="O3p-Oq-3R3" customClass="channelUITableViewCell" customModule="Youtube_Skeleton_Channel" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                    </userDefinedRuntimeAttributes>
+                                </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Tl8-P2-YVx" kind="show" identifier="goToChannel" id="yKK-a4-uEL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="55c-oK-OIr" id="hWC-wi-99i"/>
+                            <outlet property="delegate" destination="55c-oK-OIr" id="UqE-bM-Ql2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="dRR-NQ-j2w"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0D-Sh-Q7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2789.8550724637685" y="167.41071428571428"/>
+        </scene>
+        <!--Segment View Controller-->
+        <scene sceneID="EES-cl-Fu7">
+            <objects>
+                <viewController id="Tl8-P2-YVx" customClass="SegmentViewController" customModule="Youtube_Skeleton_Channel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QJS-99-Cow">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eTA-LE-BG9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Videos"/>
+                                    <segment title="Playlist"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControl:" destination="Tl8-P2-YVx" eventType="valueChanged" id="yr8-Co-hqF"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ccr-3w-4oc">
+                                <rect key="frame" x="0.0" y="127" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="Ey7-9a-kEv">
+                                    <size key="itemSize" width="400" height="221"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="bMO-9m-VqI">
+                                        <rect key="frame" x="7" y="8" width="400" height="221"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="221"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="kQG-kL-FfO" kind="show" identifier="goToVideo" id="fDS-PK-gtx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tl8-P2-YVx" id="b00-Qo-81i"/>
+                                    <outlet property="delegate" destination="Tl8-P2-YVx" id="6an-PZ-RjC"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ccr-3w-4oc" secondAttribute="bottom" id="4tY-1Q-acL"/>
+                            <constraint firstItem="ccr-3w-4oc" firstAttribute="leading" secondItem="F4J-fb-qaQ" secondAttribute="leading" id="80h-70-9hI"/>
+                            <constraint firstItem="eTA-LE-BG9" firstAttribute="leading" secondItem="F4J-fb-qaQ" secondAttribute="leading" id="Wvz-ut-0n3"/>
+                            <constraint firstItem="ccr-3w-4oc" firstAttribute="trailing" secondItem="F4J-fb-qaQ" secondAttribute="trailing" id="Z35-I4-IdO"/>
+                            <constraint firstItem="eTA-LE-BG9" firstAttribute="trailing" secondItem="F4J-fb-qaQ" secondAttribute="trailing" id="icw-1U-2hQ"/>
+                            <constraint firstItem="eTA-LE-BG9" firstAttribute="top" secondItem="F4J-fb-qaQ" secondAttribute="top" id="o7h-e0-B0Y"/>
+                            <constraint firstItem="ccr-3w-4oc" firstAttribute="top" secondItem="eTA-LE-BG9" secondAttribute="bottom" constant="8" id="qU5-Az-Uf7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F4J-fb-qaQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ccr-3w-4oc" id="DqC-6Y-mRx"/>
+                        <outlet property="segmentControl" destination="eTA-LE-BG9" id="A5x-m7-GBh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IoQ-lZ-rBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3544.9275362318845" y="169.41964285714286"/>
+        </scene>
+        <!--Playlist Videos Collection View Controller-->
+        <scene sceneID="DSr-2k-AHg">
+            <objects>
+                <collectionViewController storyboardIdentifier="StoryboardID" id="2fw-eL-sWj" customClass="PlaylistVideosCollectionViewController" customModule="Youtube_Skeleton_Channel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gQI-TI-o5k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qm1-95-KLG">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uNV-nQ-Ytt">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="kQG-kL-FfO" kind="show" identifier="goToVideo" id="FQm-8K-pUx"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="2fw-eL-sWj" id="kEh-xJ-G3s"/>
+                            <outlet property="delegate" destination="2fw-eL-sWj" id="voA-E3-pzz"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sV4-FB-zmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4402" y="166"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Byn-eo-Awu">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bxa-ZZ-kAy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="huE-Xq-XDP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vR8-9i-mB6" kind="relationship" relationship="viewControllers" id="60N-Gv-Vct"/>
+                        <segue destination="al6-be-VJN" kind="relationship" relationship="viewControllers" id="Ag1-Qv-XU3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmi-eo-AIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="602.89855072463774" y="119.86607142857142"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="q36-Bj-8u8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vR8-9i-mB6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="Grz-4B-Jfj" userLabel="Home"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tVn-y4-4yA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Egp-DS-ByX" kind="relationship" relationship="rootViewController" id="2Rh-Y5-Jug"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXf-qs-aWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.9710144927537" y="-579.24107142857144"/>
+        </scene>
+        <!--Channels-->
+        <scene sceneID="s7Q-mu-Cp6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="al6-be-VJN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Channels" id="bAh-H2-Q8h"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qu0-VK-1nH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="55c-oK-OIr" kind="relationship" relationship="rootViewController" id="Srj-Gk-94I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXS-Ny-ahf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1879.7101449275365" y="167.41071428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fDS-PK-gtx"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,0 +1,6 @@
+module Pods_Youtube_Skeleton_Channel {
+  umbrella header "Pods-Youtube Skeleton Channel-umbrella.h"
+
+  export *
+  module * { export * }
+}

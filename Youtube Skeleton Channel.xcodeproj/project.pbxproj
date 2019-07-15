@@ -9,21 +9,47 @@
 /* Begin PBXBuildFile section */
 		03970A6622DC9140007B62F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A6522DC9140007B62F6 /* AppDelegate.swift */; };
 		03970A6822DC9140007B62F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A6722DC9140007B62F6 /* SceneDelegate.swift */; };
-		03970A6A22DC9140007B62F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A6922DC9140007B62F6 /* ViewController.swift */; };
+		03970A6A22DC9140007B62F6 /* HomeviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A6922DC9140007B62F6 /* HomeviewController.swift */; };
 		03970A6D22DC9140007B62F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03970A6B22DC9140007B62F6 /* Main.storyboard */; };
 		03970A6F22DC9142007B62F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03970A6E22DC9142007B62F6 /* Assets.xcassets */; };
 		03970A7222DC9142007B62F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03970A7022DC9142007B62F6 /* LaunchScreen.storyboard */; };
+		03970A8522DC9EEC007B62F6 /* PlaylistVideosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8122DC9EEB007B62F6 /* PlaylistVideosCollectionViewController.swift */; };
+		03970A8622DC9EEC007B62F6 /* ChannelListControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8222DC9EEC007B62F6 /* ChannelListControllerTableViewController.swift */; };
+		03970A8722DC9EEC007B62F6 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8322DC9EEC007B62F6 /* SegmentViewController.swift */; };
+		03970A8822DC9EEC007B62F6 /* VideoCellVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8422DC9EEC007B62F6 /* VideoCellVIewController.swift */; };
+		03970A8F22DC9F52007B62F6 /* ChannelDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8A22DC9F51007B62F6 /* ChannelDetails.swift */; };
+		03970A9022DC9F52007B62F6 /* channelUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8B22DC9F51007B62F6 /* channelUITableViewCell.swift */; };
+		03970A9122DC9F52007B62F6 /* RecommendedVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8C22DC9F51007B62F6 /* RecommendedVideos.swift */; };
+		03970A9222DC9F52007B62F6 /* CellUIDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8D22DC9F51007B62F6 /* CellUIDetails.swift */; };
+		03970A9322DC9F52007B62F6 /* PlaylistVideosUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A8E22DC9F52007B62F6 /* PlaylistVideosUI.swift */; };
+		03970A9722DC9F68007B62F6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A9522DC9F67007B62F6 /* Extensions.swift */; };
+		03970A9822DC9F68007B62F6 /* VideoCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03970A9622DC9F68007B62F6 /* VideoCellData.swift */; };
+		E321B79AAC9EA6E6C085DF98 /* libPods-Youtube Skeleton Channel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6801F9E65BD4F0AA4973C69B /* libPods-Youtube Skeleton Channel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03970A6222DC9140007B62F6 /* Youtube Skeleton Channel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube Skeleton Channel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03970A6522DC9140007B62F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03970A6722DC9140007B62F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		03970A6922DC9140007B62F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03970A6922DC9140007B62F6 /* HomeviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeviewController.swift; sourceTree = "<group>"; };
 		03970A6C22DC9140007B62F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03970A6E22DC9142007B62F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03970A7122DC9142007B62F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03970A7322DC9142007B62F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03970A8122DC9EEB007B62F6 /* PlaylistVideosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistVideosCollectionViewController.swift; sourceTree = "<group>"; };
+		03970A8222DC9EEC007B62F6 /* ChannelListControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListControllerTableViewController.swift; sourceTree = "<group>"; };
+		03970A8322DC9EEC007B62F6 /* SegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		03970A8422DC9EEC007B62F6 /* VideoCellVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCellVIewController.swift; sourceTree = "<group>"; };
+		03970A8A22DC9F51007B62F6 /* ChannelDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetails.swift; sourceTree = "<group>"; };
+		03970A8B22DC9F51007B62F6 /* channelUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = channelUITableViewCell.swift; sourceTree = "<group>"; };
+		03970A8C22DC9F51007B62F6 /* RecommendedVideos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedVideos.swift; sourceTree = "<group>"; };
+		03970A8D22DC9F51007B62F6 /* CellUIDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellUIDetails.swift; sourceTree = "<group>"; };
+		03970A8E22DC9F52007B62F6 /* PlaylistVideosUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistVideosUI.swift; sourceTree = "<group>"; };
+		03970A9522DC9F67007B62F6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03970A9622DC9F68007B62F6 /* VideoCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCellData.swift; sourceTree = "<group>"; };
+		6801F9E65BD4F0AA4973C69B /* libPods-Youtube Skeleton Channel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youtube Skeleton Channel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A18BD8402199C8AE07723A16 /* Pods-Youtube Skeleton Channel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube Skeleton Channel.release.xcconfig"; path = "Target Support Files/Pods-Youtube Skeleton Channel/Pods-Youtube Skeleton Channel.release.xcconfig"; sourceTree = "<group>"; };
+		B06F50F15D4A177178660866 /* Pods-Youtube Skeleton Channel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube Skeleton Channel.debug.xcconfig"; path = "Target Support Files/Pods-Youtube Skeleton Channel/Pods-Youtube Skeleton Channel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E321B79AAC9EA6E6C085DF98 /* libPods-Youtube Skeleton Channel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +69,8 @@
 			children = (
 				03970A6422DC9140007B62F6 /* Youtube Skeleton Channel */,
 				03970A6322DC9140007B62F6 /* Products */,
+				B99BDDD3A117826C5F2C1248 /* Pods */,
+				8E7EBF3285D60AB237A61F2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +87,65 @@
 			children = (
 				03970A6522DC9140007B62F6 /* AppDelegate.swift */,
 				03970A6722DC9140007B62F6 /* SceneDelegate.swift */,
-				03970A6922DC9140007B62F6 /* ViewController.swift */,
+				03970A9922DC9F69007B62F6 /* Models */,
+				03970A9422DC9F56007B62F6 /* Views */,
+				03970A8922DC9F3A007B62F6 /* Controllers */,
 				03970A6B22DC9140007B62F6 /* Main.storyboard */,
 				03970A6E22DC9142007B62F6 /* Assets.xcassets */,
 				03970A7022DC9142007B62F6 /* LaunchScreen.storyboard */,
 				03970A7322DC9142007B62F6 /* Info.plist */,
 			);
 			path = "Youtube Skeleton Channel";
+			sourceTree = "<group>";
+		};
+		03970A8922DC9F3A007B62F6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03970A6922DC9140007B62F6 /* HomeviewController.swift */,
+				03970A8222DC9EEC007B62F6 /* ChannelListControllerTableViewController.swift */,
+				03970A8122DC9EEB007B62F6 /* PlaylistVideosCollectionViewController.swift */,
+				03970A8322DC9EEC007B62F6 /* SegmentViewController.swift */,
+				03970A8422DC9EEC007B62F6 /* VideoCellVIewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		03970A9422DC9F56007B62F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03970A8D22DC9F51007B62F6 /* CellUIDetails.swift */,
+				03970A8A22DC9F51007B62F6 /* ChannelDetails.swift */,
+				03970A8B22DC9F51007B62F6 /* channelUITableViewCell.swift */,
+				03970A8E22DC9F52007B62F6 /* PlaylistVideosUI.swift */,
+				03970A8C22DC9F51007B62F6 /* RecommendedVideos.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		03970A9922DC9F69007B62F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03970A9522DC9F67007B62F6 /* Extensions.swift */,
+				03970A9622DC9F68007B62F6 /* VideoCellData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E7EBF3285D60AB237A61F2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6801F9E65BD4F0AA4973C69B /* libPods-Youtube Skeleton Channel.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B99BDDD3A117826C5F2C1248 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B06F50F15D4A177178660866 /* Pods-Youtube Skeleton Channel.debug.xcconfig */,
+				A18BD8402199C8AE07723A16 /* Pods-Youtube Skeleton Channel.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03970A7622DC9142007B62F6 /* Build configuration list for PBXNativeTarget "Youtube Skeleton Channel" */;
 			buildPhases = (
+				04AE0A8E0C2B36000F8FBCE5 /* [CP] Check Pods Manifest.lock */,
 				03970A5E22DC9140007B62F6 /* Sources */,
 				03970A5F22DC9140007B62F6 /* Frameworks */,
 				03970A6022DC9140007B62F6 /* Resources */,
@@ -133,14 +215,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		04AE0A8E0C2B36000F8FBCE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Youtube Skeleton Channel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03970A5E22DC9140007B62F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03970A6A22DC9140007B62F6 /* ViewController.swift in Sources */,
+				03970A6A22DC9140007B62F6 /* HomeviewController.swift in Sources */,
+				03970A9822DC9F68007B62F6 /* VideoCellData.swift in Sources */,
+				03970A8622DC9EEC007B62F6 /* ChannelListControllerTableViewController.swift in Sources */,
 				03970A6622DC9140007B62F6 /* AppDelegate.swift in Sources */,
+				03970A8522DC9EEC007B62F6 /* PlaylistVideosCollectionViewController.swift in Sources */,
+				03970A8822DC9EEC007B62F6 /* VideoCellVIewController.swift in Sources */,
+				03970A9222DC9F52007B62F6 /* CellUIDetails.swift in Sources */,
+				03970A8722DC9EEC007B62F6 /* SegmentViewController.swift in Sources */,
+				03970A9022DC9F52007B62F6 /* channelUITableViewCell.swift in Sources */,
+				03970A9722DC9F68007B62F6 /* Extensions.swift in Sources */,
+				03970A9122DC9F52007B62F6 /* RecommendedVideos.swift in Sources */,
+				03970A8F22DC9F52007B62F6 /* ChannelDetails.swift in Sources */,
 				03970A6822DC9140007B62F6 /* SceneDelegate.swift in Sources */,
+				03970A9322DC9F52007B62F6 /* PlaylistVideosUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +400,7 @@
 		};
 		03970A7722DC9142007B62F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B06F50F15D4A177178660866 /* Pods-Youtube Skeleton Channel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +419,7 @@
 		};
 		03970A7822DC9142007B62F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A18BD8402199C8AE07723A16 /* Pods-Youtube Skeleton Channel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
