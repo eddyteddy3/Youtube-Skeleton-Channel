@@ -21,6 +21,8 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
     var selectedPlayListCell: PlaylistItems?
     var playlistVideos: [ThumbnailDetails]?
     
+    var playlistChannelImageName: String?
+    
     var cellVideoId: String?
     var playlistId: String?
     var channelId: String?
@@ -29,10 +31,12 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet var collectionView: UICollectionView!
     
     private let apiKey = "[your_api_key_here]"
-    let videoApiCall = "https://www.googleapis.com/youtube/v3/activities?"
-    let playlistApiCall = "https://www.googleapis.com/youtube/v3/playlists?"
-    let videoCellApiCall = "https://www.googleapis.com/youtube/v3/videos?"
-    let playlistItemsApiCall = "https://www.googleapis.com/youtube/v3/playlistItems"
+    
+    let videoApiUrl = "https://www.googleapis.com/youtube/v3/activities?"
+    let playlistApiUrl = "https://www.googleapis.com/youtube/v3/playlists?"
+    let videoCellApiUrl = "https://www.googleapis.com/youtube/v3/videos?"
+    let playlistItemsApiUrl = "https://www.googleapis.com/youtube/v3/playlistItems"
+    let channelApiUrl = "https://www.googleapis.com/youtube/v3/channels?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,46 +57,26 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func fetchPlaylists(){
-        Alamofire.request(playlistApiCall, method: .get, parameters: ["part":"contentDetails,snippet,status", "channelId":channelId!, "maxResults":"40", "key":apiKey]).responseJSON { (response) in
-            
-            // print("Request: \(String(describing: response.request))")   // original url request
-            //print("Response: \(String(describing: response.response))") // http url response
-            //print("Result: \(response.result)")
+        Alamofire.request(playlistApiUrl, method: .get, parameters: ["part":"contentDetails,snippet,status", "channelId":channelId!, "maxResults":"40", "key":apiKey]).responseJSON { (response) in
             
             if let json = response.result.value as? [String: AnyObject] {
                 
                 self.playlists = [PlaylistItems]()
                 
                 for items in json["items"] as! NSArray {
-                    print("Items: \(items)")
-                    
-                    //let playlistId = (items as AnyObject)["id"] as? String
-                    //print("PlayList Id: \(String(describing: playlistId))")
-                    
-                    //let contentDetail = (items as AnyObject)["contentDetails"] as? [String: AnyObject]
-                    //let playlistVideoCount = contentDetail!["itemCount"]
-                    //print("playlistCount: \(playlistVideoCount)")
+                    //print("Items: \(items)")
                     
                     let title = (items as AnyObject)["snippet"] as? [String: AnyObject]
-                    //print("Title: \(String(describing: title))")
-                    
-                    //let contentDetails = (items as AnyObject)["contentDetails"] as? [String: AnyObject]
                     let playlistId = (items as AnyObject)["id"] as? String
-                    //print("VideoID: \(playlistId)")
-                    //print("Video ID: \(String(describing: videoId))") //here we are retrieving Video ID
-                    //print("Description: \(description)")
                     
                     let thumbnailUrl = title!["thumbnails"] as? [String: AnyObject]
-                    //print("URL: \(String(describing: thumbnailUrl))")
-                    
-                    //let maxresUrl = thumbnailUrl!["maxres"]?["url"]
-                    //print("RES URL: \(String(describing: maxresUrl))")
                     
                     let playlist = PlaylistItems()
-                    playlist.playlistTitle = "Playlist Name: \(title!["title"] as? String ?? "NIL")"
+                    playlist.playlistTitle = "Playlist Name: \(title!["title"] as? String ?? "nil")"
                     //self.cellVideoId = videoId
                     //playlist.playlistItemCount = "Playlist Videos: \(playlistVideoCount as? String ?? "NIL")"
                     playlist.playlistId = playlistId
+                    playlist.playlistChannelId = self.channelId!
                     playlist.playlistImage = thumbnailUrl!["high"]?["url"] as? String
                     
                     
@@ -102,7 +86,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
                         self.collectionView.reloadData()
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
                     self.shouldAnimate = false
                     self.collectionView.reloadData()
                 }
@@ -112,11 +96,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func fetchVideos() {
-        Alamofire.request(videoApiCall, method: .get, parameters: ["part":"snippet,contentDetails", "channelId":channelId!, "maxResults":"20", "key":apiKey]).responseJSON { (response) in
-            
-            // print("Request: \(String(describing: response.request))")   // original url request
-            //print("Response: \(String(describing: response.response))") // http url response
-            //print("Result: \(response.result)")
+        Alamofire.request(videoApiUrl, method: .get, parameters: ["part":"snippet,contentDetails", "channelId":channelId!, "maxResults":"20", "key":apiKey]).responseJSON { (response) in
             
             if let json = response.result.value as? [String: AnyObject] {
                 
@@ -125,18 +105,44 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
                 for items in json["items"] as! NSArray {
                     //print("Items: \(items)")
                     
+                    let video = ThumbnailDetails()
+                    
+                    Alamofire.request(self.channelApiUrl, method: .get, parameters: ["part":"snippet", "id":self.channelId!, "key":self.apiKey]).responseJSON { (response) in
+                        
+                        if let json = response.result.value as? [String: AnyObject] {
+                            for items in json["items"] as! NSArray {
+                                print("CHANNEL Items: \(items)")
+                                
+                                let title = (items as AnyObject)["snippet"] as? [String: AnyObject]
+                                //channel.channelTitle = title!["title"] as? String
+                                //print("Channel Title in table view: \(String(describing: channel.channelTitle))")
+                                
+                                let thumbnailUrl = title!["thumbnails"] as? [String: AnyObject]
+                                let highResUrl = thumbnailUrl!["high"]?["url"] as? String
+                                //print("Channel Image URL: \(String(describing: highResUrl))")
+                                video.channelImageName = highResUrl
+                                self.playlistChannelImageName = highResUrl
+                                //self.imageStr = highResUrl
+                                //print("\(highResUrl)")
+                            }
+                        }
+                    }
+                    
                     let title = (items as AnyObject)["snippet"] as? [String: AnyObject]
                     //print("Title: \(String(describing: title))")
+                    
+                    let publishedDate = title!["publishedAt"] as? String
+                    if let index = publishedDate?.range(of: "T1") {
+                        let subString = publishedDate![..<index.lowerBound]
+                        video.uploadDate = "Published Date: \(String(subString))"
+                        //print("Date: \(subString)")
+                    }
                     
                     let channelId = title!["channelId"]
                     //print("ChannelId: \(channelId)")
                     
                     let contentDetails = (items as AnyObject)["contentDetails"] as? [String: AnyObject]
-                    //let videoId = contentDetails!["upload"]?["videoId"] as? String
-                    //print("Video ID: \(String(describing: videoId))") //here we are retrieving Video ID
                     
-                    //let description = title!["description"] as? String
-                    //print("Description: \(description)")
                     var videoId = contentDetails!["upload"]?["videoId"] as? String
                     
                     if videoId == nil {
@@ -145,12 +151,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
                     }
                     
                     let thumbnailUrl = title!["thumbnails"] as? [String: AnyObject]
-                    //print("URL: \(String(describing: thumbnailUrl))")
                     
-                    //let maxresUrl = thumbnailUrl!["maxres"]?["url"]
-                    //print("RES URL: \(String(describing: maxresUrl))")
-                    
-                    let video = ThumbnailDetails()
                     video.videoTitle = title!["title"] as? String
                     self.cellVideoId = videoId
                     video.cellVideoId = videoId
@@ -163,7 +164,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
                         self.collectionView.reloadData()
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
                     self.shouldAnimate = false
                     self.collectionView.reloadData()
                 }
@@ -189,7 +190,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch (segmentControl.selectedSegmentIndex) {
         case 0:
             self.selectedVideoCell = videos![indexPath.item]
-            Alamofire.request(videoCellApiCall, method: .get, parameters: ["part":"snippet,statistics", "id":selectedVideoCell!.cellVideoId!, "key":apiKey]).responseJSON { (response) in
+            Alamofire.request(videoCellApiUrl, method: .get, parameters: ["part":"snippet,statistics", "id":selectedVideoCell!.cellVideoId!, "key":apiKey]).responseJSON { (response) in
                 
                 if let json = response.result.value as? [String: AnyObject] {
                     for items in json["items"] as! NSArray {
@@ -210,6 +211,8 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StoryboardID") as? PlaylistVideosCollectionViewController {
                 viewController.playlistId = selectedPlayListCell?.playlistId
+                viewController.playlistChannelId = selectedPlayListCell?.playlistChannelId
+                viewController.playlistChannelImageName = self.playlistChannelImageName
                 navigationController?.pushViewController(viewController, animated: true)
             }
         default:
@@ -250,7 +253,7 @@ class SegmentViewController: UIViewController, UICollectionViewDelegate, UIColle
         let height = (view.frame.width - 16 - 16) * 9 / 16
         return CGSize(width: UIScreen.main.bounds.width, height: height + 16 + 68)
     }
-
+    
     
     @IBAction func segmentControl(_ sender: Any) {
         collectionView.reloadData()

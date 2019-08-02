@@ -19,9 +19,17 @@ class VideoCellVIewController: UIViewController, UICollectionViewDelegate, UICol
     
     var recommendedDetails: [ThumbnailDetails]?
     
+    var selectedCell: ThumbnailDetails?
+    
+    var channelImageStr: String?
+    
+    
+    var channelId: String?
+    
     private let apiKey = "[your_api_key_here]"
+    
     let youtubeApiCall = "https://www.googleapis.com/youtube/v3/activities?"
-
+    
     @IBOutlet var date: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var webView: WKWebView!
@@ -31,6 +39,14 @@ class VideoCellVIewController: UIViewController, UICollectionViewDelegate, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        channelImageStr = videoDetails?.channelImageName
+        
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
         
         collectionView?.register(RecommendedVideo.self, forCellWithReuseIdentifier: "cell")
         
@@ -49,19 +65,36 @@ class VideoCellVIewController: UIViewController, UICollectionViewDelegate, UICol
                 for items in json["items"] as! NSArray {
                     // print("Items: \(items)")
                     
+                    let video = ThumbnailDetails()
+                    
                     let title = (items as AnyObject)["snippet"] as? [String: AnyObject]
                     //print("Title: \(String(describing: title))")
+                    
+                    let publishedDate = title!["publishedAt"] as? String
+                    if let index = publishedDate?.range(of: "T1") {
+                        let subString = publishedDate![..<index.lowerBound]
+                        video.uploadDate = "Published Date: \(String(subString))"
+                        //print("Date: \(video.uploadDate)")
+                    }
                     
                     let thumbnailUrl = title!["thumbnails"] as? [String: AnyObject]
                     //print("URL: \(String(describing: thumbnailUrl))")
                     
-                    //let maxresUrl = thumbnailUrl!["maxres"]?["url"]
-                    //print("RES URL: \(String(describing: maxresUrl))")
+                    let contentDetails = (items as AnyObject)["contentDetails"] as? [String: AnyObject]
+                    //print("Content Details: \(contentDetails)")
                     
-                    let video = ThumbnailDetails()
+                    var videoId = contentDetails!["upload"]?["videoId"] as? String
+                    
+                    if videoId == nil {
+                        let resource = contentDetails!["playlistItem"]?["resourceId"] as? [String: AnyObject]
+                        videoId = resource!["videoId"] as? String ?? "nil"
+                    }
+                    
                     video.videoTitle = title!["title"] as? String
                     video.videoImageName = thumbnailUrl!["medium"]?["url"] as? String
-                    
+                    video.cellVideoId = videoId
+                    video.channelId = self.videoDetails?.channelId
+                    video.channelImageName = self.channelImageStr
                     
                     //appending the videos
                     self.recommendedDetails?.append(video)
@@ -107,7 +140,7 @@ class VideoCellVIewController: UIViewController, UICollectionViewDelegate, UICol
             let htmlString = "<html><body style='margin:0px;padding:0px;'><iframe id='playerId' type='text/html' width=100%% height=100%% src='http://www.youtube.com/embed/" + videoDetails!.cellVideoId! + "?enablejsapi=1&rel=0' frameborder='0'></iframe></body></html>"
             webView.loadHTMLString(htmlString, baseURL: nil)
             
-            
+            self.imageView.loadImageUsingURLString(urlString: channelImageStr ?? "nil")
             self.videoTitle.text = video.videoTitle
             self.date.text = video.uploadDate
             self.viewCount.text = "Views: \(video.numberofViews ?? "0")"
@@ -117,5 +150,5 @@ class VideoCellVIewController: UIViewController, UICollectionViewDelegate, UICol
         
     }
     
-
+    
 }

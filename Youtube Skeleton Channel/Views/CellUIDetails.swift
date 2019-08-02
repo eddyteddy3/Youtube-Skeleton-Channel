@@ -23,7 +23,7 @@ class DetailedCell: UICollectionViewCell {
     
     //loading image from URL for thumbnail
     func loadChannelProfileImageFromURL() { //loads channel profile image from URL.
-        if let profileImageURL = video?.channel?.channelImageName {
+        if let profileImageURL = video?.channelImageName {
             userProfileImage.loadImageUsingURLString(urlString: profileImageURL)
         }
     }
@@ -53,7 +53,7 @@ class DetailedCell: UICollectionViewCell {
     //views seperator line
     let seperatorLine: UIView = {
         let line = UIView()
-        line.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        line.backgroundColor = #colorLiteral(red: 0.3375922441, green: 0.7577283382, blue: 0.9999999404, alpha: 1)
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
@@ -61,7 +61,7 @@ class DetailedCell: UICollectionViewCell {
     //view for user profile image
     let userProfileImage: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+        image.backgroundColor = #colorLiteral(red: 0.3375922441, green: 0.7577283382, blue: 0.9999999404, alpha: 1)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 22
@@ -103,21 +103,17 @@ class DetailedCell: UICollectionViewCell {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: .directionMask, metrics: nil, views: ["v0": seperatorLine])) //seperator line view
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0]-8-[v1(44)]-20-[v2(1)]|", options: .directionMask, metrics: nil, views: ["v0": thumbnailImageView, "v1": userProfileImage, "v2": seperatorLine])) //vertical constraints
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0]-8-[v1(44)]-5-[v2]-5-[v3(1)]|", options: .directionMask, metrics: nil, views: ["v0": thumbnailImageView, "v1": userProfileImage, "v2": dateLabel, "v3": seperatorLine])) //vertical constraints
         
         //for title label view
         //constraint to the top of thumbnail image
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: thumbnailImageView, attribute: .bottom, multiplier: 1, constant: 8))
-        //date constraints
-        addConstraint(NSLayoutConstraint(item: dateLabel, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 0))
-        //constraint to the left of user profile image
+        
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: userProfileImage, attribute: .right, multiplier: 1, constant: 8))
         
         addConstraint(NSLayoutConstraint(item: dateLabel, attribute: .left, relatedBy: .equal, toItem: userProfileImage, attribute: .right, multiplier: 1, constant: 8))
         //constraint to the right of thumbnail image
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
-        //constraint to the height itself
-        //addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 20))
         
     }
     

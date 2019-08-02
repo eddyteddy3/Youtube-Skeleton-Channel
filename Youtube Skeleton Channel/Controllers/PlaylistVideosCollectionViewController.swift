@@ -13,23 +13,27 @@ class PlaylistVideosCollectionViewController: UICollectionViewController, UIColl
     
     var playlistVideos: [ThumbnailDetails]?
     var playlistId: String?
+    var playlistChannelId: String?
+    
+    var playlistChannelImageName: String?
     
     var selectedCell: ThumbnailDetails?
-
+    
     private let apiKey = "[your_api_key_here]"
+    
     let playlistItemsApiCall = "https://www.googleapis.com/youtube/v3/playlistItems"
     let videoApiCall = "https://www.googleapis.com/youtube/v3/videos?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = "Playlist Videos"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-
+        
         // Register cell classes
         self.collectionView.register(PlaylistVideosUI.self, forCellWithReuseIdentifier: "cell")
-
+        
         fetchVideos()
     }
     
@@ -72,33 +76,33 @@ class PlaylistVideosCollectionViewController: UICollectionViewController, UIColl
                         //print("Video: \(video)")
                     }
                 }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
             
         }
-
+        
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.width - 16 - 16) * 9 / 16
         return CGSize(width: UIScreen.main.bounds.width, height: height + 16 + 68)
         
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return playlistVideos?.count ?? 0
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaylistVideosUI
-    
+        
         // Configure the cell
         cell.videos = playlistVideos![indexPath.item]
-    
+        
         return cell
     }
     
@@ -134,5 +138,5 @@ class PlaylistVideosCollectionViewController: UICollectionViewController, UIColl
         segueDestination?.videoDetails = self.selectedCell
         //segueDestination?.channelId = self.channelId
     }
-
+    
 }

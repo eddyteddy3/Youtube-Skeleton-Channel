@@ -44,13 +44,13 @@ class channelUITableViewCell: UITableViewCell {
         return title
     }()
     
-    //for channel image view 
+    //for channel image view
     let channelImageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        image.backgroundColor = #colorLiteral(red: 0, green: 0.5780889988, blue: 0.8655508161, alpha: 1)
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = image.bounds.height / 2
+        image.layer.cornerRadius = 40
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()

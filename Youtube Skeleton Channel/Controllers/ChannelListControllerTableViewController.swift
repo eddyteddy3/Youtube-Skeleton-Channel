@@ -19,9 +19,10 @@ class ChannelListControllerTableViewController: UITableViewController {
     var selectedChannel: ChannelDetails? //to copy selected cell object to this var
     
     private let apiKey = "[your_api_key_here]"
+    
     let channelApiCall = "https://www.googleapis.com/youtube/v3/channels?"
     
-    let channelIdArray = ["UCNZ-ZdWIRFM88Fxvlpug73A","UC3__mxJ0T3dXisOp3OP49DA","UChnKAuF_9R5_6RKzrBaxTMA","UCt5pwA1JdEMaQ7XX_FldPzA","UC75zRBEe-jA6jFGDliL_-NQ","UC5ZAU-hc5NOeuXUcb4gyqcQ"]
+    let channelIdArray = ["the array of channels or a single channel"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
