@@ -6,3 +6,4 @@ I am using some channels from Youtube from Pakistan with their consent.
 * You have to make your own **API Key** and use that in this app.
 * This app uses skeleton loading view to make UX better. It still needs some improvement which will be coming in future.
 * You are totally welcome to make some improvements.
+* You need to add channel array or a single and remove the *for loop* from *fetchVideos()* function and do some relevant improvements in code as well.
